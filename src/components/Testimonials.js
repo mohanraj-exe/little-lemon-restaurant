@@ -3,8 +3,7 @@ import React from 'react'
 function Testimonials() {
   return (
     <>
-      <h2>Testimonials</h2>
-      <section>
+      <section className='testimonials-section'>
 
         <article>
           <img src="greek-salad.jpg" alt="restaurant-food-serving" width="300" height="350" />

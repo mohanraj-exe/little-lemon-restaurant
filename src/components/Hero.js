@@ -1,16 +1,23 @@
-import React from 'react'
+import '../styles/Hero.css';
 
 export default function Hero() {
   return (
     <>
-      <section>
-        <h2>Hero</h2>
-        <article>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eu faucibus ipsum. Mauris sagittis, mauris vitae consectetur maximus, dui ligula bibendum lacus, ornare luctus turpis diam vel neque.
-          </p>
-        </article>
-        <img src="restauranfood.jpg" alt="restaurant-food-serving" width="300" height="550" />
+      <section className='hero-section'>
+        <section className='container'>
+          <h2 className='res-title'>Little lemon</h2>
+          <h3 className='res-location'>Chicago</h3>
+          <article className='cta'>
+            <aside>
+              <p>
+                We are a family owned Meditteranean restaurant, focused on traditional recipes served
+                with a modern twist.
+              </p>
+              <button>Reserve a table</button>
+            </aside>
+            <img className='banner-img' src="restauranfood.jpg" alt="restaurant-food-serving" />
+          </article>
+        </section>
       </section>
     </>
   )

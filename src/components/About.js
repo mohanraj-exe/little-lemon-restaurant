@@ -3,8 +3,7 @@ import React from 'react'
 function About() {
     return (
         <>
-            <h2>About</h2>
-            <section>
+            <section className='aboutus-section'>
                 <article>
                     <h3>Little lemon</h3>
                     <p>

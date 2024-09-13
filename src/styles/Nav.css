@@ -1,0 +1,24 @@
+header{
+    margin: 0.5em 0;
+}
+
+.nav{
+    display: flex;
+    justify-content: space-between;
+}
+
+.nav > img{
+    max-width: 100%;
+}
+
+.nav > ul{
+    display: none;
+}
+
+/* ul > li{
+    list-style-type: none;
+}
+
+a{
+    text-decoration: none;
+} */

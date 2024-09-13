@@ -1,0 +1,9 @@
+footer > nav{
+    display: none;
+}
+
+footer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
