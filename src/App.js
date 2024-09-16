@@ -1,5 +1,5 @@
 import './App.css';
-import ReserveTable from './components/ReserveTable';
+import BookingPage from './pages/BookingPage';
 import Homepage from './pages/Homepage';
 import { Routes, Route } from 'react-router-dom';
 
@@ -9,7 +9,7 @@ function App() {
     <>
       <Routes>
         <Route path='/' element={<Homepage />} />
-        <Route path='/reserve-table' element={<ReserveTable />} />
+        <Route path='/booking-page' element={<BookingPage />} />
       </Routes>
     </>
   );

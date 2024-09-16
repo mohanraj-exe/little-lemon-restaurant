@@ -14,7 +14,7 @@ export default function Hero() {
                 We are a family owned Meditteranean restaurant, focused on traditional recipes served
                 with a modern twist.
               </p>
-              <Link to='/reserve-table'>
+              <Link to='/booking-page'>
                 <button>
                   Reserve a table
                 </button>

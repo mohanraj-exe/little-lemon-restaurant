@@ -1,15 +1,15 @@
 import Footer from "../components/Footer";
-import ReserveTable from "../components/ReserveTable";
+import BookingForm from "../components/BookingForm";
 import Nav from "../components/Nav";
 
-function Homepage() {
+function BookingPage() {
   return (
     <>
       <Nav />
-      <ReserveTable />
+      <BookingForm />
       <Footer />
     </>
   );
 }
 
-export default Homepage;
+export default BookingPage;
