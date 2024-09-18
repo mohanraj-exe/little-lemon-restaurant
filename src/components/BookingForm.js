@@ -3,8 +3,8 @@ import React, {
     //  useReducer 
 } from "react";
 
-function BookingForm({ availableTimes, dispatch, updateTimes }) {
-    console.log(updateTimes);
+function BookingForm({ availableTimes, dispatch }) {
+    // console.log("availableTimes:", availableTimes);
     const occasion = [
         { occasion: "Select occasion", value: "" },
         { occasion: "Anniversary", value: "anniversary" },

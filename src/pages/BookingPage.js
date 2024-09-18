@@ -5,18 +5,8 @@ import BookingForm from "../components/BookingForm";
 
 function Main() {
 
-  // const [availableTimes, ] = useState([
-  //   { time: "Select time", value: "" },
-  //   { time: "17:00", value: "17:00" },
-  //   { time: "18:00", value: "18:00" },
-  //   { time: "19:00", value: "19:00" },
-  //   { time: "20:00", value: "20:00" },
-  //   { time: "21:00", value: "21:00" },
-  //   { time: "22:00", value: "22:00" }
-  // ])
-
-  const initializeTimes = ""
-  const availableTimes = [
+  // Initial state of the useReducer function.
+  const initializeTimes = [
     { time: "Select time", value: "" },
     { time: "17:00", value: "17:00" },
     { time: "18:00", value: "18:00" },
@@ -26,27 +16,22 @@ function Main() {
     { time: "22:00", value: "22:00" }
   ];
 
+  // Function will handle the state change.
   const updateTimes = (availableTimes, action) => {
     if (action.type === "date") {
-      availableTimes = [
-        { time: "Select time", value: "" },
-        { time: "17:00", value: "17:00" },
-        { time: "18:00", value: "18:00" },
-        { time: "19:00", value: "19:00" },
-        { time: "20:00", value: "20:00" },
-        { time: "21:00", value: "21:00" },
-        { time: "22:00", value: "22:00" }
-      ];
+      // console.log("triggered!");
+      availableTimes = initializeTimes;
       return availableTimes;
     }
   }
 
-  const [, dispatch] = useReducer(updateTimes, initializeTimes)
+  // useReducer function.
+  const [availableTimes, dispatch] = useReducer(updateTimes, initializeTimes)
 
   return (
     <>
       <main>
-        <BookingForm availableTimes={availableTimes} dispatch={dispatch} updateTimes={updateTimes} />
+        <BookingForm dispatch={dispatch} availableTimes={availableTimes} />
       </main>
     </>
   )
