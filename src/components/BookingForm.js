@@ -1,10 +1,11 @@
 import React, {
     useState,
-    //  useReducer 
+    // useReducer,
+    // useEffect
 } from "react";
 
 function BookingForm({ availableTimes, dispatch }) {
-    // console.log("availableTimes:", availableTimes);
+    // console.log("availableTimes:", availableTimes, dispatch);
     const occasion = [
         { occasion: "Select occasion", value: "" },
         { occasion: "Anniversary", value: "anniversary" },
@@ -27,43 +28,17 @@ function BookingForm({ availableTimes, dispatch }) {
         setBooking({ ...booking, [e.target.name]: e.target.value });
     }
 
-    // const [value, setValue] = useState(0);
-    // let initialValue = 0;
-
-    // const handleClick1 = () =>{
-    //     // setValue(value + 1);
-    //     dispatch({
-    //         type: 'add'
-    //     })
-
-    // }
-    // const handleClick2 = () =>{
-    //     // setValue(value - 1);
-    //     dispatch({
-    //         type: 'subtract'
-    //     })
-    // }
-
-    // const yourReducerFunction = (value, action) =>{
-    //     if(action.type === 'add'){
-    //         return value + 1
-    //     } else if(action.type === 'subtract'){
-    //         return value - 1
-    //     } else {
-    //         return value
-    //     }
-    // };
-
-    // const [value, dispatch] = useReducer(yourReducerFunction, initialValue);
+    const handleSubmit = (e) => {
+        // console.log("e:", e.target.value, e.target.name)
+        e.preventDefault();
+        alert(JSON.stringify(booking, null, 1));
+    }
 
     return (
         <>
-            {/* Value: {value}
-            <button onClick={handleClick1}>+</button>
-            <button onClick={handleClick2}>-</button>
-            <br /> */}
-
-            <form style={{ display: "grid", maxWidth: "200px", gap: "20px", border: "1px solid green" }}>
+            <form style={{ display: "grid", maxWidth: "200px", gap: "20px", border: "1px solid green" }}
+                onSubmit={handleSubmit}
+            >
                 {/* Date */}
                 <label htmlFor="res-date">Choose date</label>
                 <input type="date" id="res-date"
@@ -80,7 +55,7 @@ function BookingForm({ availableTimes, dispatch }) {
                     onChange={handleChange}
                 >
                     {availableTimes.map((time) => (
-                        <option key={time.value} value={time.value}>{time.time}</option>
+                        <option key={time} value={time}>{time}</option>
                     ))}
                 </select>
 
@@ -104,7 +79,7 @@ function BookingForm({ availableTimes, dispatch }) {
                     ))}
                 </select>
 
-                <button type="submit">Submit</button>
+                <button type="submit">Book Now</button>
             </form>
         </>
     )
