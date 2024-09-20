@@ -23,5 +23,10 @@ export function fetchAPI(date) {
 };
 
 export function submitAPI(formData) {
-    return true;
+    // console.log(formData);
+    if(!formData){
+        return false;
+    } else {
+        return true;
+    }
 };

@@ -4,7 +4,7 @@ import React, {
     // useEffect
 } from "react";
 
-function BookingForm({ availableTimes, dispatch }) {
+function BookingForm({ availableTimes, dispatch, submitForm }) {
     // console.log("availableTimes:", availableTimes, dispatch);
     const occasion = [
         { occasion: "Select occasion", value: "" },
@@ -31,7 +31,8 @@ function BookingForm({ availableTimes, dispatch }) {
     const handleSubmit = (e) => {
         // console.log("e:", e.target.value, e.target.name)
         e.preventDefault();
-        alert(JSON.stringify(booking, null, 1));
+        // alert(JSON.stringify(booking, null, 1));
+        submitForm(booking);
     }
 
     return (
@@ -56,7 +57,8 @@ function BookingForm({ availableTimes, dispatch }) {
                 >
                     {availableTimes.map((time) => (
                         <option key={time} value={time}>{time}</option>
-                    ))}
+                    ))
+                    }
                 </select>
 
                 {/* Guests */}

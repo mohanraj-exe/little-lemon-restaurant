@@ -2,9 +2,12 @@ import React, { useReducer } from "react";
 import Footer from "../components/Footer";
 import Nav from "../components/Nav";
 import BookingForm from "../components/BookingForm";
-import { fetchAPI } from "../API/fetchAPI";
+import { fetchAPI, submitAPI } from "../API/fetchAPI";
+import { useNavigate } from "react-router-dom";
 
 function Main() {
+
+  const navigate = useNavigate();
 
   // Initial state of the useReducer function-initializeTimes
   let initializeTimes;
@@ -22,12 +25,20 @@ function Main() {
   }
 
   // useReducer function.
-  const [availableTimes, dispatch] = useReducer(updateTimes, initializeTimes)
+  const [availableTimes, dispatch] = useReducer(updateTimes, initializeTimes);
+
+  function submitForm(formData) {
+    const formSubmitCheck = submitAPI(formData);
+    // console.log(formSubmitCheck);
+    if (formSubmitCheck) {
+      return navigate('/booking-confirmed-page');
+    }
+  }
 
   return (
     <>
       <main>
-        <BookingForm availableTimes={availableTimes} dispatch={dispatch}/>
+        <BookingForm availableTimes={availableTimes} dispatch={dispatch} submitForm={submitForm} />
       </main>
     </>
   )
