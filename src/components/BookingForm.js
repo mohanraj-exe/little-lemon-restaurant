@@ -3,7 +3,6 @@ import React, {
     // useReducer,
     // useEffect
 } from "react";
-// import { useFormik } from 'formik';
 
 function BookingForm({ availableTimes, dispatch, submitForm }) {
     // console.log("availableTimes:", availableTimes, dispatch);
@@ -42,7 +41,7 @@ function BookingForm({ availableTimes, dispatch, submitForm }) {
         } else if (name === 'guests') {
             if (!value) {
                 error = 'Guests is required';
-            }  else if (!/^[1-9]$|^10$/.test(value)) {  // Check if the value is between 1 and 10
+            } else if (!/^[1-9]$|^10$/.test(value)) {  // Check if the value is between 1 and 10
                 error = 'Guests must be a number between 1 and 10';
             }
         } else if (name === 'occasion') {
@@ -119,9 +118,23 @@ function BookingForm({ availableTimes, dispatch, submitForm }) {
         e.preventDefault();
         const { date, time, guests, occasion } = booking;
         const formData = { date, time, guests, occasion };
-        // console.log(formData);
+        // console.log("formData:",formData);
         alert(JSON.stringify(formData, null, 1));
-        submitForm(formData);
+
+        const checkErrorState = Object.keys(booking.errors).every((key) => {
+            return booking.errors[key].length === 0;
+        });
+        const checkBookingState = Object.keys(formData).every((key) => {
+            return formData[key].length > 0;
+        });
+
+        // console.log(checkErrorState, checkBookingState);
+        if (checkErrorState && checkBookingState) {
+            // console.log("All checked!");
+            submitForm(formData);
+        } else {
+            console.log({ message: "Must fill all fields!" });
+        }
     }
 
     const occasion = [
@@ -136,24 +149,28 @@ function BookingForm({ availableTimes, dispatch, submitForm }) {
                 onSubmit={handleSubmit}
             >
                 {/* Date */}
-                <label htmlFor="res-date">Choose date</label>
+                <label htmlFor="res-date">Choose date<span class="mandatory">*</span></label>
                 <input type="date" id="res-date"
                     name="date"
                     value={booking.date}
                     onChange={handleChange}
                     onBlur={handleBlur}
+                    required aria-required="true"
+                    aria-label="On Click"
                 />
                 {booking.touched.date && booking.errors.date ? (
                     <span>{booking.errors.date}</span>
                 ) : null}
 
                 {/* Time */}
-                <label htmlFor="res-time">Choose time</label>
+                <label htmlFor="res-time">Choose time<span class="mandatory">*</span></label>
                 <select id="res-time"
                     name="time"
                     value={booking.time}
                     onChange={handleChange}
                     onBlur={handleBlur}
+                    required aria-required="true"
+                    aria-label="On Click"
                 >
                     <option value="">Select option</option>
                     {availableTimes.map((time) => (
@@ -165,24 +182,28 @@ function BookingForm({ availableTimes, dispatch, submitForm }) {
                 ) : null}
 
                 {/* Guests */}
-                <label htmlFor="guests">Number of guests</label>
+                <label htmlFor="guests">Number of guests<span class="mandatory">*</span></label>
                 <input type="text" id="guests" placeholder="1"
                     name="guests"
                     value={booking.guests}
                     onChange={handleChange}
                     onBlur={handleBlur}
+                    required aria-required="true"
+                    aria-label="On Click"
                 />
                 {booking.touched.guests && booking.errors.guests ? (
                     <span>{booking.errors.guests}</span>
                 ) : null}
 
                 {/* Occasion */}
-                <label htmlFor="occasion">Occasion</label>
+                <label htmlFor="occasion">Occasion<span class="mandatory">*</span></label>
                 <select id="occasion"
                     name="occasion"
                     value={booking.occasion}
                     onChange={handleChange}
                     onBlur={handleBlur}
+                    required aria-required="true"
+                    aria-label="On Click"
                 >
                     {occasion.map((occasion) => (
                         <option key={occasion.value} value={occasion.value}>{occasion.occasion}</option>
