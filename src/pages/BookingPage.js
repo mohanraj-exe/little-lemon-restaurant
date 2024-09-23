@@ -46,11 +46,11 @@ function Main() {
 
 function BookingPage() {
   return (
-    <>
+    <div>
       <Nav />
       <Main />
       <Footer />
-    </>
+    </div>
   )
 }
 

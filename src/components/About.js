@@ -3,7 +3,7 @@ import '../styles/Aboutus.css';
 function About() {
     return (
         <>
-            <section className='aboutus-section'>
+            <section className='aboutus-section' id='aboutus-section'>
                 <section className='container'>
                     <article>
                         <h2 className='aboutus-title'>Who we are?</h2>
