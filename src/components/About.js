@@ -1,16 +1,19 @@
-import React from 'react'
+import '../styles/Aboutus.css';
 
 function About() {
     return (
         <>
             <section className='aboutus-section'>
-                <article>
-                    <h3>Little lemon</h3>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eu faucibus ipsum. Mauris sagittis, mauris vitae consectetur maximus, dui ligula bibendum lacus, ornare luctus turpis diam vel neque.
-                    </p>
-                </article>
-                <img src="restauranfood.jpg" alt="restaurant-food-serving" width="300" height="550" />
+                <section className='container'>
+                    <article>
+                        <h2 className='aboutus-title'>Who we are?</h2>
+                        <img src="Mario-and-Adrian-A.jpg" alt="restaurant-owners-img" />
+                        <h3>Mario and adrian</h3>
+                        <p>
+                            Mario and Adrian, lifelong friends with a shared love for culinary arts, founded Little Lemon with a simple mission: to bring fresh, vibrant Mediterranean flavors to their community. With roots deeply embedded in Italian and Greek traditions, they wanted to create a space where every dish tells a story of their heritage, combined with modern twists that excite the palate.
+                        </p>
+                    </article>
+                </section>
             </section>
         </>
     )

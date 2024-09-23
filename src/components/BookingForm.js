@@ -149,7 +149,7 @@ function BookingForm({ availableTimes, dispatch, submitForm }) {
                 onSubmit={handleSubmit}
             >
                 {/* Date */}
-                <label htmlFor="res-date">Choose date<span class="mandatory">*</span></label>
+                <label htmlFor="res-date">Choose date<span className="mandatory">*</span></label>
                 <input type="date" id="res-date"
                     name="date"
                     value={booking.date}
@@ -163,7 +163,7 @@ function BookingForm({ availableTimes, dispatch, submitForm }) {
                 ) : null}
 
                 {/* Time */}
-                <label htmlFor="res-time">Choose time<span class="mandatory">*</span></label>
+                <label htmlFor="res-time">Choose time<span className="mandatory">*</span></label>
                 <select id="res-time"
                     name="time"
                     value={booking.time}
@@ -182,7 +182,7 @@ function BookingForm({ availableTimes, dispatch, submitForm }) {
                 ) : null}
 
                 {/* Guests */}
-                <label htmlFor="guests">Number of guests<span class="mandatory">*</span></label>
+                <label htmlFor="guests">Number of guests<span className="mandatory">*</span></label>
                 <input type="text" id="guests" placeholder="1"
                     name="guests"
                     value={booking.guests}
@@ -196,7 +196,7 @@ function BookingForm({ availableTimes, dispatch, submitForm }) {
                 ) : null}
 
                 {/* Occasion */}
-                <label htmlFor="occasion">Occasion<span class="mandatory">*</span></label>
+                <label htmlFor="occasion">Occasion<span className="mandatory">*</span></label>
                 <select id="occasion"
                     name="occasion"
                     value={booking.occasion}

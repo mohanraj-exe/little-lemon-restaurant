@@ -1,0 +1,17 @@
+.aboutus-section{
+    font-family: "Karla", sans-serif;
+    text-align: center;
+}
+
+.aboutus-title{
+    font-size: 2rem;
+    margin: 0;
+    padding: 0.25em 0;
+    font-family: "Markazi Text", serif;
+    font-weight: 600;
+}
+
+.aboutus-section img{
+    max-width: 85vw;
+    border-radius: 0.5em;
+}

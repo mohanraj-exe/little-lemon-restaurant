@@ -27,7 +27,7 @@ function Highlights() {
                             <p className='dish-price'>$5.99</p>
                             <p className='dish-delivery'>Order a delivery</p>
                         </aside>
-                        <img src="greek-salad.jpg" alt="restaurant-food-serving" />
+                        <img src="bruchetta.svg" alt="restaurant-food-serving" />
                     </article>
 
                     <article className='dish-info'>
@@ -39,7 +39,7 @@ function Highlights() {
                             <p className='dish-price'>$5.00</p>
                             <p className='dish-delivery'>Order a delivery</p>
                         </aside>
-                        <img src="greek-salad.jpg" alt="restaurant-food-serving" />
+                        <img src="lemon-dessert.jpg" alt="restaurant-food-serving" />
                     </article>
                 </section>
             </section>
