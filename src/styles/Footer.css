@@ -26,6 +26,7 @@ footer h3{
 .footer-nav li{
     list-style: none;
     text-decoration: none;
+    margin: 1em 0;
 }
 
 .footer-nav a{
@@ -33,21 +34,13 @@ footer h3{
     color: #495f58;
 }
 
-.social-media-links{
+/* .social-media-links{
     display: grid;
-    grid-template-columns: repeat(3, auto);
-}
+    grid-template-columns: repeat(3, 1fr);
+} */
 
-.quick-links {
-    display: grid;
-    grid-template-columns: repeat(3, auto); /* Creates 3 equal columns */
-    grid-template-rows: repeat(2, auto);    /* Creates 2 equal rows */
-    gap: 1.5em;
-}
-
-.contactus-links {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Creates 3 equal columns */
-    grid-template-rows: repeat(2, auto);    /* Creates 2 equal rows */
-    gap: 1.5em;
-}
+/* .quick-links {
+    display: flex;
+    justify-content: space-between;
+    gap: 2em;
+} */

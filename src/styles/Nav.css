@@ -4,20 +4,43 @@ header{
 
 .nav{
     display: flex;
+    align-items: center;
     justify-content: space-between;
 }
 
-.nav > img{
+#logo{
     max-width: 100%;
-}
-
-.nav > ul{
-    display: none;
-}
-
-#home{
     cursor: pointer;
 }
+
+.nav ul{
+    padding-left: 0;
+}
+
+.nav li{
+    list-style: none;
+    text-decoration: none;
+    /* margin: 1em 0; */
+}
+
+.nav a{
+    text-decoration: none;
+    color: #333333;
+}
+
+.nav-quick-links {
+    display: flex;
+    justify-content: space-between;
+    gap: 2em;
+}
+
+/* .nav #logo{
+    align-self: ;
+} */
+
+/* #home{
+    cursor: pointer;
+} */
 
 /* ul > li{
     list-style-type: none;
