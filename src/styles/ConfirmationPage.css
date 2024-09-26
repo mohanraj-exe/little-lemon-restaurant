@@ -1,0 +1,13 @@
+.confirmation-page{
+    margin: 0;
+    min-height: 100vh;
+    color: var(--green);
+    font-family: "Markazi Text", serif;
+    font-weight: 700;
+    font-size: 2rem;
+    text-align: center;
+}
+
+.confirmation-page h2{
+    border: 0.125em solid var(--yellow);
+}

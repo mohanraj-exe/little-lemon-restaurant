@@ -4,19 +4,19 @@
 
 footer{
     font-family: "Karla", sans-serif;
-    background-color: #EDEFEE;
+    background-color: var(--lightpink);
     /* color: #ffffff; */
 }
 
 footer .img{
-    padding: 2.25em 0 0 0;
+    padding: 2em 0 0 0;
 }
 
 footer h3{
     font-family: "Markazi Text", serif;
     font-size: 1.5rem;
     margin-bottom: 0;
-    color: #333333;
+    color: var(--black);
 }
 
 .footer-nav ul{
@@ -31,7 +31,7 @@ footer h3{
 
 .footer-nav a{
     text-decoration: none;
-    color: #495f58;
+    color: var(--green);
 }
 
 /* .social-media-links{
@@ -39,8 +39,10 @@ footer h3{
     grid-template-columns: repeat(3, 1fr);
 } */
 
-/* .quick-links {
-    display: flex;
+.quick-links a.active{
+    /* display: flex;
     justify-content: space-between;
-    gap: 2em;
-} */
+    gap: 2em; */
+    text-decoration: underline;
+    color: var(--green);
+}

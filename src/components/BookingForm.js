@@ -3,9 +3,17 @@ import React, {
     // useReducer,
     // useEffect
 } from "react";
+import useSubmit from "../Hooks/useSubmit";
+// import { VStack, StackDivider, Box } from '@chakra-ui/react';
+import { Spinner } from '@chakra-ui/react';
+
+import "../styles/BookingForm.css"
 
 function BookingForm({ availableTimes, dispatch, submitForm }) {
-    // console.log("availableTimes:", availableTimes, dispatch);
+    // console.log("availableTimes:", availableTimes);
+
+    const { isLoading, submitAPI, navigateAPI } = useSubmit();
+    // console.log("isLoading:", isLoading);
 
     const [booking, setBooking] = useState({
         date: '',
@@ -25,6 +33,7 @@ function BookingForm({ availableTimes, dispatch, submitForm }) {
             occasion: '',
         }
     });
+
 
     const validateField = (name, value) => {
         let error = '';
@@ -109,11 +118,25 @@ function BookingForm({ availableTimes, dispatch, submitForm }) {
         realTimeValidation(name, value);
     }
 
-    // useEffect(() => {
-    //     console.log("triggered!");
-    // }, [booking])
+    const handleClear = async () => {
+        const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+        setBooking(booking => ({
+            ...booking,
+            date: '',
+            time: '',
+            guests: '',
+            occasion: '',
+            touched: {
+                date: false,
+                time: false,
+                guests: false,
+                occasion: false
+            }
+        }))
+        await wait(500);
+    }
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         // const { name, value } = e.target;
         e.preventDefault();
         const { date, time, guests, occasion } = booking;
@@ -130,8 +153,9 @@ function BookingForm({ availableTimes, dispatch, submitForm }) {
 
         // console.log(checkErrorState, checkBookingState);
         if (checkErrorState && checkBookingState) {
-            // console.log("All checked!");
-            submitForm(formData);
+            await submitAPI(formData);
+            await handleClear();
+            navigateAPI();
         } else {
             console.log({ message: "Must fill all fields!" });
         }
@@ -145,76 +169,92 @@ function BookingForm({ availableTimes, dispatch, submitForm }) {
 
     return (
         <>
-            <form style={{ display: "grid", maxWidth: "200px", gap: "20px", border: "1px solid green" }}
-                onSubmit={handleSubmit}
-            >
-                {/* Date */}
-                <label htmlFor="res-date">Choose date<span className="mandatory">*</span></label>
-                <input type="date" id="res-date"
-                    name="date"
-                    value={booking.date}
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    required aria-required="true"
-                    aria-label="On Click"
-                />
-                {booking.touched.date && booking.errors.date ? (
-                    <span>{booking.errors.date}</span>
-                ) : null}
+            <form onSubmit={handleSubmit}>
+                <section className="form-section">
+                    {/* Date */}
+                    <div className="label-input">
+                        <label htmlFor="res-date">Choose date<span className="mandatory">*</span></label>
+                        <input type="date" id="res-date"
+                            name="date"
+                            value={booking.date}
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                            required aria-required="true"
+                            aria-label="On Click"
+                        />
+                        {booking.touched.date && booking.errors.date ? (
+                            <div className="errors">{booking.errors.date}</div>
+                        ) : null}
+                    </div>
 
-                {/* Time */}
-                <label htmlFor="res-time">Choose time<span className="mandatory">*</span></label>
-                <select id="res-time"
-                    name="time"
-                    value={booking.time}
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    required aria-required="true"
-                    aria-label="On Click"
-                >
-                    <option value="">Select option</option>
-                    {availableTimes.map((time) => (
-                        <option key={time} value={time}>{time}</option>
-                    ))}
-                </select>
-                {booking.touched.time && booking.errors.time ? (
-                    <span>{booking.errors.time}</span>
-                ) : null}
+                    {/* Time */}
+                    <div className="label-input">
+                        <label htmlFor="res-time">Choose time<span className="mandatory">*</span></label>
+                        <select id="res-time"
+                            name="time"
+                            value={booking.time}
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                            required aria-required="true"
+                            aria-label="On Click"
+                        >
+                            <option value="">Select option</option>
+                            {availableTimes.map((time) => (
+                                <option key={time} value={time}>{time}</option>
+                            ))}
+                        </select>
+                        {booking.touched.time && booking.errors.time ? (
+                            <div className="errors">{booking.errors.time}</div>
+                        ) : null}
+                    </div>
 
-                {/* Guests */}
-                <label htmlFor="guests">Number of guests<span className="mandatory">*</span></label>
-                <input type="text" id="guests" placeholder="1"
-                    name="guests"
-                    value={booking.guests}
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    required aria-required="true"
-                    aria-label="On Click"
-                />
-                {booking.touched.guests && booking.errors.guests ? (
-                    <span>{booking.errors.guests}</span>
-                ) : null}
+                    {/* Guests */}
+                    <div className="label-input">
+                        <label htmlFor="guests">Number of guests<span className="mandatory">*</span></label>
+                        <input type="text" id="guests" placeholder="1"
+                            name="guests"
+                            value={booking.guests}
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                            required aria-required="true"
+                            aria-label="On Click"
+                        />
+                        {booking.touched.guests && booking.errors.guests ? (
+                            <div className="errors">{booking.errors.guests}</div>
+                        ) : null}
+                    </div>
 
-                {/* Occasion */}
-                <label htmlFor="occasion">Occasion<span className="mandatory">*</span></label>
-                <select id="occasion"
-                    name="occasion"
-                    value={booking.occasion}
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    required aria-required="true"
-                    aria-label="On Click"
-                >
-                    {occasion.map((occasion) => (
-                        <option key={occasion.value} value={occasion.value}>{occasion.occasion}</option>
-                    ))}
-                </select>
-
-                {booking.touched.occasion && booking.errors.occasion ? (
-                    <span>{booking.errors.occasion}</span>
-                ) : null}
-
-                <button type="submit">Book Now</button>
+                    <div className="label-input">
+                        {/* Occasion */}
+                        <label htmlFor="occasion">Occasion<span className="mandatory">*</span></label>
+                        <select id="occasion"
+                            name="occasion"
+                            value={booking.occasion}
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                            required aria-required="true"
+                            aria-label="On Click"
+                        >
+                            {occasion.map((occasion) => (
+                                <option key={occasion.value} value={occasion.value}>{occasion.occasion}</option>
+                            ))}
+                        </select>
+                        {booking.touched.occasion && booking.errors.occasion ? (
+                            <div className="errors">{booking.errors.occasion}</div>
+                        ) : null}
+                    </div>
+                    {/* <div> */}
+                    {isLoading ? <Spinner
+                        thickness='4px'
+                        speed='0.65s'
+                        emptyColor='gray.200'
+                        color='blue.500'
+                        size='xl'
+                    /> :
+                        <button type="submit">Book Now</button>
+                    }
+                    {/* </div> */}
+                </section>
             </form>
         </>
     )

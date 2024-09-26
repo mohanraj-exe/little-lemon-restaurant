@@ -34,18 +34,9 @@ header{
     gap: 2em;
 }
 
-/* .nav #logo{
-    align-self: ;
-} */
-
-/* #home{
-    cursor: pointer;
-} */
-
-/* ul > li{
-    list-style-type: none;
+.nav-quick-links a.active{
+    background-color: var(--green);
+    color: var(--white);
+    padding: 0.275em;
+    border-radius: 0.35em;
 }
-
-a{
-    text-decoration: none;
-} */

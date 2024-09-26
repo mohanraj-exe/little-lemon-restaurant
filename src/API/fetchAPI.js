@@ -21,12 +21,3 @@ export function fetchAPI(date) {
     }
     return result;
 };
-
-export function submitAPI(formData) {
-    // console.log(formData);
-    if(!formData){
-        return false;
-    } else {
-        return true;
-    }
-};

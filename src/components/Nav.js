@@ -4,7 +4,7 @@ import { Link, NavLink } from 'react-router-dom';
 function Nav() {
     return (
         <>
-            <header id='home'>
+            <header>
                 <nav className='container nav'>
                     {/* <img src="hamburger.svg" alt="hamburger-icon" width="30px" /> */}
                     <Link to='/'>
