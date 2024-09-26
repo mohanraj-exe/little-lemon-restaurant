@@ -1,8 +1,11 @@
+.highlights-section{
+    margin: 1em 0;
+}
 .highlights-title{
     font-size: 2rem;
-    margin-bottom: 0;
     font-family: "Markazi Text", serif;
     font-weight: 600;
+    margin: 0 0 0.5em 0;
 }
 
 .dish-info{
@@ -11,16 +14,18 @@
     /* grid-template-columns: repeat(2, 1fr); */
     grid-template-columns: 3fr 1fr;
     /* grid-auto-flow: column; */
-    justify-content: space-between;
+    /* justify-content: space-between; */
     align-items: center;
     gap: 0.625em;
-    margin: 1em 0;
+    margin: 0 0 1em 0;
     padding-bottom: 0.25em;
     border-bottom: 2px solid #EDEFEE;
 }
 
 .dish-info > img{
-    width: 100%;
+    /* width: 100%; */
+    max-width: 100%;
+    display: block;
     /* align-self: center; */
     /* border-radius: 1em; */
 }

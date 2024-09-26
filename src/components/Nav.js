@@ -8,7 +8,7 @@ function Nav() {
                 <nav className='container nav'>
                     {/* <img src="hamburger.svg" alt="hamburger-icon" width="30px" /> */}
                     <Link to='/'>
-                        <img id='logo' src="logo-final.jpg" alt="restaurant-logo" width="150" height="40" />
+                        <img id='logo' src="logo-final.jpg" alt="restaurant-logo" />
                     </Link>
                     {/* <img src="basket.svg" alt="basket-icon" width="40px" /> */}
                     <ul className='nav-quick-links'>

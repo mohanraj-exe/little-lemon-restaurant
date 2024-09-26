@@ -3,7 +3,7 @@ import '../styles/Highlights.css';
 function Highlights() {
     return (
         <>
-            <section className='highlights-section' id='menu'>
+            <section className='highlights-section'>
                 <section className='container'>
                     <h2 className='highlights-title'>This week specials!</h2>
                     <article className='dish-info'>

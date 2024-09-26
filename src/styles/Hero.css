@@ -12,23 +12,22 @@
     /* display: flex; */
     justify-content: space-between;
     gap: 0.625em;
-    margin: 1em 0;
+    margin: 0 0 1em;
 }
 
 .res-title{
     color: #F4CE14;
-    margin: 0;
     font-size: 4rem;
     font-family: "Markazi Text", serif;
     font-weight: 500;
 }
 
 .res-location{
-    margin: 0;
     font-family: "Markazi Text", serif;
     font-weight: 400;
     font-size: 2.5rem;
     line-height: 0.1;
+    margin: 0 0 0.5em;
 }
 
 .cta p{
@@ -38,8 +37,10 @@
 }
 
 .banner-img{
-    width: 100%;
-    align-self: center;
+    max-width: 100%;
+    display: block;
+    /* width: 100%; */
+    /* align-self: center; */
     border-radius: 1em;
 }
 
@@ -52,5 +53,6 @@
     border-style: none;
     padding: 0.5em 1em;
     cursor: pointer;
+    color: var(--black);
 }
 

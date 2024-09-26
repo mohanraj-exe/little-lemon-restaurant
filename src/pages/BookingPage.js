@@ -5,7 +5,6 @@ import BookingForm from "../components/BookingForm";
 import {
   fetchAPI,
 } from "../API/fetchAPI";
-import { ChakraProvider } from '@chakra-ui/react'
 
 function Main() {
 
@@ -41,9 +40,7 @@ function BookingPage() {
   return (
     <>
       <Nav />
-      <ChakraProvider>
-        <Main />
-      </ChakraProvider>
+      <Main />
       <Footer />
     </>
   )
