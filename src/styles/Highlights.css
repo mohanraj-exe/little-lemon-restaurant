@@ -1,5 +1,5 @@
 .highlights-section{
-    margin: 1em 0;
+    margin: 1.5em 0;
 }
 .highlights-title{
     font-size: 2rem;
@@ -24,8 +24,9 @@
 
 .dish-info > img{
     /* width: 100%; */
-    max-width: 100%;
+    width: 100%;
     display: block;
+    border: 0.0625em solid var(--green);
     /* align-self: center; */
     /* border-radius: 1em; */
 }
