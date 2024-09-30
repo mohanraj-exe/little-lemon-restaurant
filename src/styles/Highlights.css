@@ -63,3 +63,38 @@
     font-weight: 700;
     color: #333333;
 }
+
+@media only screen and (max-width: 768px) {
+    .dish-info{
+        visibility: visible;
+    }
+    .highlights-col-3 .dish-info-lg{
+        display: none;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .highlights-col-3{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1em;
+    }
+    .dish-info{
+        display: none;
+    }
+    .dish-info-lg .dish-price{
+        font-size: 1.25rem;
+    }
+    .dish-description{
+        display: none;
+    }
+    .dish-description-lg{
+        font-family: "Karla", sans-serif;
+    }
+    .dish-delivery-lg{
+        font-family: "Karla", sans-serif;
+        font-weight: 700;
+        color: #333333;
+        cursor: pointer;
+    }
+}

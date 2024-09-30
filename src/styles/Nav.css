@@ -5,7 +5,7 @@ header{
 .nav{
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: end;
 }
 
 #logo{
@@ -29,6 +29,7 @@ header{
 .nav a{
     text-decoration: none;
     color: #333333;
+    margin-right: auto;
 }
 
 .nav-quick-links {
