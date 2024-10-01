@@ -1,30 +1,31 @@
 .testimonials-section{
     background-color: #F4CE14;
     /* margin: 2em 0; */
-    padding: 1.25em 0;
+    padding: 1.5em 0;
 }
 
 .testimonials-title{
     font-size: 2rem;
     font-family: "Markazi Text", serif;
     font-weight: 600;
+    text-align: center;
 }
 
-.review-section{
+.testimonial-card{
     display: flex;
     flex-direction: column;
     background-color: #ffffff;
     align-items: center;
-    padding: 1em;
+    padding: 1.5em;
     margin: 1em 0;
-    /* cursor: pointer; */
+    cursor: pointer;
     border-radius: 0.5em;
     font-family: "Karla", sans-serif;
 }
 
-.review-section > img{
-    /* max-width: 25vw; */
-    /* height: 10vh;
+.testimonial-card > img{
+    /* max-width: 25vw;
+    height: 10vh;
     border-radius: 50%; */
 
     max-width: 30%;
@@ -48,7 +49,7 @@
     margin: 0.25em 0;
 }
 
-.review-section:hover{
+.testimonial-card:hover{
     box-shadow: 0 0.25em 0.5em 0 hsl(160, 13%, 33%), 0 0.25em 0.5em 0 hsl(160, 13%, 33%);
 }
 
@@ -61,13 +62,27 @@
 
 }
 
+.controls{
+    display: flex;
+    gap: 2em;
+    justify-content: center;
+    font-family: "Karla", sans-serif;
+    font-weight: 800;
+    font-size: 1.125rem;
+}
+
+.controls button:hover{
+    text-decoration: underline;
+    color: var(--green);
+}
+
 @media only screen and (min-width: 768px) {
-    .review-grid{
+    .testimonial-col{
+        max-width: 60vw;
+        margin: auto;
         display: flex;
-        /* grid-template-columns: repeat(4, 1fr);
-        justify-content: space-between; */
-        gap: 0.625em;
-        /* margin: 1em 0; */
+        flex-direction: column;
+        justify-content: space-between;
     }
 }
 

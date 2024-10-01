@@ -142,7 +142,7 @@ function BookingForm({ availableTimes, dispatch, submitForm }) {
         const { date, time, guests, occasion } = booking;
         const formData = { date, time, guests, occasion };
         // console.log("formData:",formData);
-        alert(JSON.stringify(formData, null, 1));
+        // alert(JSON.stringify(formData, null, 1));
 
         const checkErrorState = Object.keys(booking.errors).every((key) => {
             return booking.errors[key].length === 0;

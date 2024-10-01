@@ -24,7 +24,7 @@ const highlights = [
         description: "Our bruchetta is made from grilled bread that has been smeared with garlic and seasoned with salt and olive oil.",
         price: "$5.99",
         delivery: "Order a delivery",
-        img: "bruchetta.svg"
+        img: "bruchetta.jpg"
     },
     {
         id: 3,
