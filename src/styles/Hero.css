@@ -6,7 +6,7 @@
 
 .cta{
     display: grid;
-    gap: 0.125em;
+    gap: 0.85em;
     grid-template-columns: 2fr 1fr;
 }
 
